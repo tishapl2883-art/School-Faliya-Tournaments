@@ -1,0 +1,150 @@
+[2026-11-26 20:33:59] local.ERROR: PHP Parse error: Syntax error, unexpected '=' on line 1 {"exception":"[object] (Psy\\Exception\\ParseErrorException(code: 0): PHP Parse error: Syntax error, unexpected '=' on line 1 at C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Exception/ParseErrorException.php:44)
+[stacktrace]
+#0 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/CodeCleaner.php(657): Psy/Exception/ParseErrorException::fromParseError(Object(PhpParser/Error))
+#1 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/CodeCleaner.php(273): Psy/CodeCleaner->parse('<?php  = //App//M...', false)
+#2 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(1399): Psy/CodeCleaner->clean(Array, false)
+#3 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(1506): Psy/Shell->appendCode(' = //App//Models//...', true, false)
+#4 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(2215): Psy/Shell->setCode(' = //App//Models//...', true)
+#5 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/tinker/src/Console/TinkerCommand.php(77): Psy/Shell->execute(' = //App//Models//...')
+#6 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Laravel/Tinker/Console/TinkerCommand->handle()
+#7 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
+#8 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
+#9 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
+#10 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
+#11 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
+#12 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#13 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#14 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(1127): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#15 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(357): Symfony/Component/Console/Application->doRunCommand(Object(Laravel/Tinker/Console/TinkerCommand), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#16 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(196): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#17 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(202): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#18 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#19 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#20 {main}
+"} 
+[2026-11-26 20:34:27] local.ERROR: PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1 {"exception":"[object] (Psy\\Exception\\ParseErrorException(code: 0): PHP Parse error: Syntax error, unexpected '@', expecting ',' or ']' or ')' on line 1 at C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Exception/ParseErrorException.php:44)
+[stacktrace]
+#0 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/CodeCleaner.php(657): Psy/Exception/ParseErrorException::fromParseError(Object(PhpParser/Error))
+#1 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/CodeCleaner.php(273): Psy/CodeCleaner->parse('<?php $u = //App...', false)
+#2 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(1399): Psy/CodeCleaner->clean(Array, false)
+#3 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(1506): Psy/Shell->appendCode('$u = //App//Model...', true, false)
+#4 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/psy/psysh/src/Shell.php(2215): Psy/Shell->setCode('$u = //App//Model...', true)
+#5 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/tinker/src/Console/TinkerCommand.php(77): Psy/Shell->execute('$u = //App//Model...')
+#6 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(36): Laravel/Tinker/Console/TinkerCommand->handle()
+#7 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/Util.php(43): Illuminate/Container/BoundMethod::Illuminate/Container/{closure}()
+#8 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(96): Illuminate/Container/Util::unwrapIfClosure(Object(Closure))
+#9 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php(35): Illuminate/Container/BoundMethod::callBoundMethod(Object(Illuminate/Foundation/Application), Array, Object(Closure))
+#10 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Container/Container.php(799): Illuminate/Container/BoundMethod::call(Object(Illuminate/Foundation/Application), Array, Array, NULL)
+#11 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Console/Command.php(211): Illuminate/Container/Container->call(Array)
+#12 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Command/Command.php(341): Illuminate/Console/Command->execute(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#13 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony/Component/Console/Command/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Illuminate/Console/OutputStyle))
+#14 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(1127): Illuminate/Console/Command->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#15 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(357): Symfony/Component/Console/Application->doRunCommand(Object(Laravel/Tinker/Console/TinkerCommand), Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#16 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/symfony/console/Application.php(196): Symfony/Component/Console/Application->doRun(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#17 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(202): Symfony/Component/Console/Application->run(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#18 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/vendor/laravel/framework/src/Illuminate/Foundation/Application.php(1235): Illuminate/Foundation/Console/Kernel->handle(Object(Symfony/Component/Console/Input/ArgvInput), Object(Symfony/Component/Console/Output/ConsoleOutput))
+#19 C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/artisan(16): Illuminate/Foundation/Application->handleCommand(Object(Symfony/Component/Console/Input/ArgvInput))
+#20 {main}
+"} 
+[2026-11-26 23:36:00] local.ERROR: Uncaught ErrorException: Undefined variable $errors in C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Foundation\Bootstrap\HandleExceptions.php(262): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\Users\\Kamles...', 62)
+#1 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\0f04188e1eedf8c3f2bcbb66de3424ff.php(62): Illuminate\Foundation\Bootstrap\HandleExceptions->Illuminate\Foundation\Bootstrap\{closure}(2, 'Undefined varia...', 'C:\\Users\\Kamles...', 62)
+#2 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(123): require('C:\\Users\\Kamles...')
+#3 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(124): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#4 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(57): Illuminate\Filesystem\Filesystem->getRequire('C:\\Users\\Kamles...', Array)
+#5 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(76): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\Users\\Kamles...', Array)
+#6 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(208): Illuminate\View\Engines\CompilerEngine->get('C:\\Users\\Kamles...', Array)
+#7 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#8 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#9 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\a04cef25582f1bfcb2249a9958332cac.php(41): Illuminate\View\View->render()
+#10 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(123): require('C:\\Users\\Kamles...')
+#11 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(124): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#12 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(57): Illuminate\Filesystem\Filesystem->getRequire('C:\\Users\\Kamles...', Array)
+#13 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(76): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\Users\\Kamles...', Array)
+#14 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(208): Illuminate\View\Engines\CompilerEngine->get('C:\\Users\\Kamles...', Array)
+#15 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#16 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#17 Command line code(1): Illuminate\View\View->render()
+#18 {main}
+
+Next Illuminate\View\ViewException: Undefined variable $errors (View: C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\resources\views\layouts\app.blade.php) in C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(59): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(76): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\Users\\Kamles...', Array)
+#2 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(208): Illuminate\View\Engines\CompilerEngine->get('C:\\Users\\Kamles...', Array)
+#3 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#4 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#5 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\a04cef25582f1bfcb2249a9958332cac.php(41): Illuminate\View\View->render()
+#6 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(123): require('C:\\Users\\Kamles...')
+#7 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php(124): Illuminate\Filesystem\Filesystem::Illuminate\Filesystem\{closure}()
+#8 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(57): Illuminate\Filesystem\Filesystem->getRequire('C:\\Users\\Kamles...', Array)
+#9 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(76): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\Users\\Kamles...', Array)
+#10 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(208): Illuminate\View\Engines\CompilerEngine->get('C:\\Users\\Kamles...', Array)
+#11 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#12 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#13 Command line code(1): Illuminate\View\View->render()
+#14 {main}
+
+Next Illuminate\View\ViewException: Undefined variable $errors (View: C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\resources\views\layouts\app.blade.php) (View: C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\resources\views\layouts\app.blade.php) in C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\storage\framework\views\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php(59): Illuminate\View\Engines\CompilerEngine->handleViewException(Object(Illuminate\View\ViewException), 0)
+#1 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php(76): Illuminate\View\Engines\PhpEngine->evaluatePath('C:\\Users\\Kamles...', Array)
+#2 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(208): Illuminate\View\Engines\CompilerEngine->get('C:\\Users\\Kamles...', Array)
+#3 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(191): Illuminate\View\View->getContents()
+#4 C:\Users\Kamlesh\Downloads\parnera-champions-trophy\parnera\vendor\laravel\framework\src\Illuminate\View\View.php(160): Illuminate\View\View->renderContents()
+#5 Command line code(1): Illuminate\View\View->render()
+#6 {main}
+  thrown {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Uncaught ErrorException: Undefined variable $errors in C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\HandleExceptions.php(262): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(2, 'Undefined varia...', 'C:\\\\Users\\\\Kamles...', 62)
+#1 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\0f04188e1eedf8c3f2bcbb66de3424ff.php(62): Illuminate\\Foundation\\Bootstrap\\HandleExceptions->Illuminate\\Foundation\\Bootstrap\\{closure}(2, 'Undefined varia...', 'C:\\\\Users\\\\Kamles...', 62)
+#2 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(123): require('C:\\\\Users\\\\Kamles...')
+#3 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#4 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(57): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Kamles...', Array)
+#5 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(76): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Kamles...', Array)
+#6 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(208): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Kamles...', Array)
+#7 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(191): Illuminate\\View\\View->getContents()
+#8 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(160): Illuminate\\View\\View->renderContents()
+#9 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\a04cef25582f1bfcb2249a9958332cac.php(41): Illuminate\\View\\View->render()
+#10 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(123): require('C:\\\\Users\\\\Kamles...')
+#11 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#12 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(57): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Kamles...', Array)
+#13 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(76): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Kamles...', Array)
+#14 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(208): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Kamles...', Array)
+#15 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(191): Illuminate\\View\\View->getContents()
+#16 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(160): Illuminate\\View\\View->renderContents()
+#17 Command line code(1): Illuminate\\View\\View->render()
+#18 {main}
+
+Next Illuminate\\View\\ViewException: Undefined variable $errors (View: C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\resources\\views\\layouts\\app.blade.php) in C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(59): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ErrorException), 1)
+#1 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(76): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Kamles...', Array)
+#2 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(208): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Kamles...', Array)
+#3 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(191): Illuminate\\View\\View->getContents()
+#4 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(160): Illuminate\\View\\View->renderContents()
+#5 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\a04cef25582f1bfcb2249a9958332cac.php(41): Illuminate\\View\\View->render()
+#6 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(123): require('C:\\\\Users\\\\Kamles...')
+#7 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#8 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(57): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\Kamles...', Array)
+#9 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(76): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Kamles...', Array)
+#10 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(208): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Kamles...', Array)
+#11 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(191): Illuminate\\View\\View->getContents()
+#12 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(160): Illuminate\\View\\View->renderContents()
+#13 Command line code(1): Illuminate\\View\\View->render()
+#14 {main}
+
+Next Illuminate\\View\\ViewException: Undefined variable $errors (View: C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\resources\\views\\layouts\\app.blade.php) (View: C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\resources\\views\\layouts\\app.blade.php) in C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\storage\\framework\\views\\0f04188e1eedf8c3f2bcbb66de3424ff.php:62
+Stack trace:
+#0 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(59): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(Illuminate\\View\\ViewException), 0)
+#1 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(76): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\Kamles...', Array)
+#2 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(208): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\Kamles...', Array)
+#3 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(191): Illuminate\\View\\View->getContents()
+#4 C:\\Users\\Kamlesh\\Downloads\\parnera-champions-trophy\\parnera\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(160): Illuminate\\View\\View->renderContents()
+#5 Command line code(1): Illuminate\\View\\View->render()
+#6 {main}
+  thrown at C:/Users/Kamlesh/Downloads/parnera-champions-trophy/parnera/storage/framework/views/0f04188e1eedf8c3f2bcbb66de3424ff.php:62)
+[stacktrace]
+#0 {main}
+"} 
