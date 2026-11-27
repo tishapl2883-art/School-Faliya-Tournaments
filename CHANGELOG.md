@@ -1,264 +1,110 @@
-# CHANGELOG
+# Changelog
 
+All notable changes to `uri-template` will be documented in this file.
 
-## 2.6.2 - 2026-11-21
+Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
-### Fixed
-
-- Fixed `LogicException` when a callback settles its own promise
-
-
-## 2.6.1 - 2026-11-19
-
-### Fixed
-
-- Fixed `Promise` losing its handlers when a thenable's `then()` throws
-- Fixed `Create::promiseFor()` throwing when a thenable's `then()` throws
-- Fixed quadratic handler forwarding through chains of pending promises
-
-
-## 2.6.0 - 2026-10-18
-
-### Added
-
-- Added `State` promise state checks as a replacement for `Is`
-
-### Deprecated
-
-- Deprecated `Is` because PHP 8.6 deprecates `is` as a class name
-
-
-## 2.5.3 - 2026-08-24
+## v1.0.11 - 2026-08-24
 
 ### Added
 
 - Added support for PHP 8.6
 
-
-## 2.5.2 - 2026-08-05
-
-### Fixed
-
-- Fixed `EachPromise` abandoning its aggregate when the pending window drains unsettled
-- Fixed `EachPromise` admitting new work after its aggregate has settled
-
-
-## 2.5.1 - 2026-07-08
+## v1.0.10 - 2026-07-17
 
 ### Fixed
 
-- Fixed recursive `Utils::all()` rejecting generator inputs
+- Fixed prefix modifiers counting Unicode code points and pct-encoded characters instead of bytes
 
+## v1.0.9 - 2026-07-08
 
-## 2.5.0 - 2026-06-02
+### Changed
 
-### Deprecated
+- Pass explicit trim characters ahead of the PHP 8.6 trim default change
 
-- Deprecated passing non-iterable inputs to promise collection helpers and `EachPromise`
-
-
-## 2.4.1 - 2026-05-20
+## v1.0.8 - 2026-06-23
 
 ### Fixed
 
-- Fixed cancelling settled coroutines when no current promise remains
+- Report PCRE errors when URI template value encoding fails
 
-
-## 2.4.0 - 2026-05-20
-
-### Changed
-
-- Empty `EachPromise` instances now resolve when the task queue runs without `wait()`
-
-
-## 2.3.1 - 2026-05-19
+## v1.0.7 - 2026-06-12
 
 ### Fixed
 
-- Fixed `Utils::inspect()` returning the internal reason array instead of the `AggregateException`
+- Fixed the operator's leading character being omitted when defined variables expand to empty strings
+- Fixed non-finite float values emitting coercion warnings on PHP 8.5
 
-
-## 2.3.0 - 2025-08-22
-
-### Added
-
-- PHP 8.5 support
-
-
-## 2.2.0 - 2025-03-27
+## v1.0.6 - 2026-05-23
 
 ### Fixed
 
-- Revert "Allow an empty EachPromise to be resolved by running the queue"
+- Fixed empty nested arrays adding empty components to exploded query expansions
+- Fixed nested query array keys being double-encoded during exploded query expansion
+- Fixed reserved and fragment expansion preserving existing pct-encoded triplets in variable values
 
+## v1.0.5 - 2025-08-22
 
-## 2.1.0 - 2025-03-27
+### Changed
 
-### Added
+- Officially support PHP 8.5
 
-- Allow an empty EachPromise to be resolved by running the queue
+## v1.0.4 - 2025-02-03
 
+### Changed
 
-## 2.0.4 - 2024-10-17
+- Officially support PHP 8.4
+
+## v1.0.3 - 2023-12-03
+
+### Changed
+
+- Updated link to RFC 6570
+
+## v1.0.2 - 2023-08-27
+
+### Changed
+
+- Officially support PHP 8.2 and 8.3
 
 ### Fixed
 
-- Once settled, don't allow further rejection of additional promises
+- Fixed using `0` as an expanded value
 
-
-## 2.0.3 - 2024-07-18
-
-### Changed
-
-- PHP 8.4 support
-
-
-## 2.0.2 - 2023-12-03
+## v1.0.1 - 2021-10-07
 
 ### Changed
 
-- Replaced `call_user_func*` with native calls
-
-
-## 2.0.1 - 2023-08-03
-
-### Changed
-
-- PHP 8.3 support
-
-
-## 2.0.0 - 2023-05-21
-
-### Added
-
-- Added PHP 7 type hints
-
-### Changed
-
-- All previously non-final non-exception classes have been marked as soft-final
-
-### Removed
-
-- Dropped PHP < 7.2 support
-- All functions in the `GuzzleHttp\Promise` namespace
-
-
-## 1.5.3 - 2023-05-21
-
-### Changed
-
-- Removed remaining usage of deprecated functions
-
-
-## 1.5.2 - 2022-08-07
-
-### Changed
-
-- Officially support PHP 8.2
-
-
-## 1.5.1 - 2021-10-22
-
-### Fixed
-
-- Revert "Call handler when waiting on fulfilled/rejected Promise"
-- Fix pool memory leak when empty array of promises provided
-
-
-## 1.5.0 - 2021-10-07
-
-### Changed
-
-- Call handler when waiting on fulfilled/rejected Promise
 - Officially support PHP 8.1
 
-### Fixed
+## v1.0.0 - 2021-08-14
 
-- Fix manually settle promises generated with `Utils::task`
+### Changed
 
+- Dropped support for PHP 7.1
 
-## 1.4.1 - 2021-02-18
-
-### Fixed
-
-- Fixed `each_limit` skipping promises and failing
-
-
-## 1.4.0 - 2020-09-30
+## v0.2.0 - 2020-07-21
 
 ### Added
 
-- Support for PHP 8
-- Optional `$recursive` flag to `all`
-- Replaced functions by static methods
+- Support PHP 7.1 and 8.0
+
+### Changed
+
+- Renamed `GuzzleHttp\Utility\` to `GuzzleHttp\UriTemplate\`
 
 ### Fixed
 
-- Fix empty `each` processing
-- Fix promise handling for Iterators of non-unique keys
-- Fixed `method_exists` crashes on PHP 8
-- Memory leak on exceptions
+- Delegate RFC 3986 query string encoding to PHP
+- Fixed some bugs when parts ofs values are not strings
 
-
-## 1.3.1 - 2016-12-20
+## v0.1.1 - 2020-06-30
 
 ### Fixed
 
-- `wait()` foreign promise compatibility
+- Fixed an error due to strict_types [d47d1b0a8e78a3fac1cd0f69d675fc9e06771ac8](https://github.com/guzzle/uri-template/commit/d47d1b0a8e78a3fac1cd0f69d675fc9e06771ac8)
 
-
-## 1.3.0 - 2016-11-18
+## v0.1.0 - 2020-06-30
 
 ### Added
-
-- Adds support for custom task queues.
-
-### Fixed
-
-- Fixed coroutine promise memory leak.
-
-
-## 1.2.0 - 2016-05-18
-
-### Changed
-
-- Update to now catch `\Throwable` on PHP 7+
-
-
-## 1.1.0 - 2016-03-07
-
-### Changed
-
-- Update EachPromise to prevent recurring on a iterator when advancing, as this
-  could trigger fatal generator errors.
-- Update Promise to allow recursive waiting without unwrapping exceptions.
-
-
-## 1.0.3 - 2015-10-15
-
-### Changed
-
-- Update EachPromise to immediately resolve when the underlying promise iterator
-  is empty. Previously, such a promise would throw an exception when its `wait`
-  function was called.
-
-
-## 1.0.2 - 2015-05-15
-
-### Changed
-
-- Conditionally require functions.php.
-
-
-## 1.0.1 - 2015-06-24
-
-### Changed
-
-- Updating EachPromise to call next on the underlying promise iterator as late
-  as possible to ensure that generators that generate new requests based on
-  callbacks are not iterated until after callbacks are invoked.
-
-
-## 1.0.0 - 2015-05-12
-
-- Initial release
+- Moved the `UriTemplate` class in this package
