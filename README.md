@@ -1,498 +1,153 @@
-This is the PHP port of Hamcrest Matchers
-=========================================
+# league/config
 
-[![tests](https://github.com/hamcrest/hamcrest-php/actions/workflows/ci.yml/badge.svg)](https://github.com/hamcrest/hamcrest-php/actions/workflows/ci.yml)
+[![Latest Version](https://img.shields.io/packagist/v/league/config.svg?style=flat-square)](https://packagist.org/packages/league/config)
+[![Total Downloads](https://img.shields.io/packagist/dt/league/config.svg?style=flat-square)](https://packagist.org/packages/league/config)
+[![Software License](https://img.shields.io/badge/License-BSD--3-brightgreen.svg?style=flat-square)](LICENSE)
+[![Build Status](https://img.shields.io/github/workflow/status/thephpleague/config/Tests/main.svg?style=flat-square)](https://github.com/thephpleague/config/actions?query=workflow%3ATests+branch%3Amain)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/thephpleague/config.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/config/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/thephpleague/config.svg?style=flat-square)](https://scrutinizer-ci.com/g/thephpleague/config)
+[![Sponsor development of this project](https://img.shields.io/badge/sponsor%20this%20package-%E2%9D%A4-ff69b4.svg?style=flat-square)](https://www.colinodell.com/sponsor)
 
-Hamcrest is a matching library originally written for Java, but
-subsequently ported to many other languages.  hamcrest-php is the
-official PHP port of Hamcrest and essentially follows a literal
-translation of the original Java API for Hamcrest, with a few
-Exceptions, mostly down to PHP language barriers:
+**league/config** helps you define nested configuration arrays with strict schemas and access configuration values with dot notation.  It was created by [Colin O'Dell][@colinodell].
 
-  1. `instanceOf($theClass)` is actually `anInstanceOf($theClass)`
+## 📦 Installation
 
-  2. `both(containsString('a'))->and(containsString('b'))`
-     is actually `both(containsString('a'))->andAlso(containsString('b'))`
+This project requires PHP 7.4 or higher.  To install it via [Composer] simply run:
 
-  3. `either(containsString('a'))->or(containsString('b'))`
-     is actually `either(containsString('a'))->orElse(containsString('b'))`
-
-  4. Unless it would be non-semantic for a matcher to do so, hamcrest-php
-     allows dynamic typing for it's input, in "the PHP way". Exception are
-     where semantics surrounding the type itself would suggest otherwise,
-     such as stringContains() and greaterThan().
-
-  5. Several official matchers have not been ported because they don't
-     make sense or don't apply in PHP:
-
-       - `typeCompatibleWith($theClass)`
-       - `eventFrom($source)`
-       - `hasProperty($name)` **
-       - `samePropertyValuesAs($obj)` **
-
-  6. When most of the collections matchers are finally ported, PHP-specific
-     aliases will probably be created due to a difference in naming
-     conventions between Java's Arrays, Collections, Sets and Maps compared
-     with PHP's Arrays.
-
----
-** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
-     - The POPO thing is a joke.  Java devs coin the term POJO's (Plain Old
-       Java Objects).
-
-
-Usage
------
-
-Hamcrest matchers are easy to use as:
-
-```php
-\Hamcrest\MatcherAssert::assertThat('a', \Hamcrest\Matchers::equalToIgnoringCase('A'));
-```
-
-Alternatively, you can use the global proxy-functions:
-
-```php
-$result = true;
-// with an identifier
-assertThat("result should be true", $result, equalTo(true));
-
-// without an identifier
-assertThat($result, equalTo(true));
-
-// evaluate a boolean expression
-assertThat($result === true);
-
-// with syntactic sugar is()
-assertThat(true, is(true));
-```
-
-> [!NOTE]
-> To prevent tests from being marked as Risky (the `This test did not perform any assertions` message)
-> add this code to your test case `tearDown` method:
->
-> ```php
-> $this->addToAssertionCount(\Hamcrest\MatcherAssert::getCount());
-> \Hamcrest\MatcherAssert::resetCount();
-> ```
-
-> [!WARNING]
-> the global proxy-functions aren't autoloaded by default, so you will need to load them first:
->
-> ```php
-> \Hamcrest\Util::registerGlobalFunctions();
-> ```
-
-For brevity, all of the examples below use the proxy-functions.
-
-
-Documentation
--------------
-A tutorial can be found on the [Hamcrest site](https://code.google.com/archive/p/hamcrest/wikis/TutorialPHP.wiki).
-
-
-Available Matchers
-------------------
-* [Array](../master/README.md#array)
-* [Collection](../master/README.md#collection)
-* [Object](../master/README.md#object)
-* [Numbers](../master/README.md#numbers)
-* [Type checking](../master/README.md#type-checking)
-* [XML](../master/README.md#xml)
-
-
-### Array
-
-* `anArray` - evaluates an array
-```php
-assertThat([], anArray());
-```
-
-* `hasItemInArray` - check if item exists in array
-```php
-$list = range(2, 7, 2);
-$item = 4;
-assertThat($list, hasItemInArray($item));
-```
-
-* `hasValue` - alias of hasItemInArray
-
-* `arrayContainingInAnyOrder` - check if array contains elements in any order
-```php
-assertThat([2, 4, 6], arrayContainingInAnyOrder([6, 4, 2]));
-assertThat([2, 4, 6], arrayContainingInAnyOrder([4, 2, 6]));
-```
-
-* `containsInAnyOrder` - alias of arrayContainingInAnyOrder
-
-* `arrayContaining` - An array with elements that match the given matchers in the same order.
-```php
-assertThat([2, 4, 6], arrayContaining([2, 4, 6]));
-assertthat([2, 4, 6], not(arrayContaining([6, 4, 2])));
-```
-
-* `contains` - check array in same order
-```php
-assertThat([2, 4, 6], contains([2, 4, 6]));
-```
-
-* `hasKeyInArray` - check if array has given key
-```php
-assertThat(['name'=> 'foobar'], hasKeyInArray('name'));
-```
-
-* `hasKey` - alias of hasKeyInArray
-
-* `hasKeyValuePair` - check if array has given key, value pair
-```php
-assertThat(['name'=> 'foobar'], hasKeyValuePair('name', 'foobar'));
-```
-* `hasEntry` - same as hasKeyValuePair
-
-* `arrayWithSize` - check array has given size
-```php
-assertthat([2, 4, 6], arrayWithSize(3));
-```
-* `emptyArray` - check if array is empty
-```php
-assertThat([], emptyArray());
-```
-
-* `nonEmptyArray`
-```php
-assertThat([1], nonEmptyArray());
-```
-
-### Collection
-
-* `emptyTraversable` - check if traversable is empty
-```php
-$empty_it = new EmptyIterator;
-assertThat($empty_it, emptyTraversable());
-```
-
-* `nonEmptyTraversable` - check if traversable isn't empty
-```php
-$non_empty_it = new ArrayIterator(range(1, 10));
-assertThat($non_empty_it, nonEmptyTraversable());
-a
-```
-
-* `traversableWithSize`
-```php
-$non_empty_it = new ArrayIterator(range(1, 10));
-assertThat($non_empty_it, traversableWithSize(count(range(1, 10))));
-`
-```
-
-### Core
-
-* `allOf` - Evaluates to true only if ALL of the passed in matchers evaluate to true.
-```php
-assertThat([2,4,6], allOf(hasValue(2), arrayWithSize(3)));
-```
-
-* `anyOf` - Evaluates to true if ANY of the passed in matchers evaluate to true.
-```php
-assertThat([2, 4, 6], anyOf(hasValue(8), hasValue(2)));
-```
-
-* `noneOf` - Evaluates to false if ANY of the passed in matchers evaluate to true.
-```php
-assertThat([2, 4, 6], noneOf(hasValue(1), hasValue(3)));
-```
-
-* `both` + `andAlso` - This is useful for fluently combining matchers that must both pass.
-```php
-assertThat([2, 4, 6], both(hasValue(2))->andAlso(hasValue(4)));
-```
-
-* `either` + `orElse` - This is useful for fluently combining matchers where either may pass,
-```php
-assertThat([2, 4, 6], either(hasValue(2))->orElse(hasValue(4)));
-```
-
-* `describedAs` - Wraps an existing matcher and overrides the description when it fails.
-```php 
-$expected = "Dog";
-$found = null;
-// this assertion would result error message as Expected: is not null but: was null
-//assertThat("Expected {$expected}, got {$found}", $found, is(notNullValue()));
-// and this assertion would result error message as Expected: Dog but: was null
-//assertThat($found, describedAs($expected, notNullValue()));
-```
-
-* `everyItem` - A matcher to apply to every element in an array.
-```php
-assertThat([2, 4, 6], everyItem(notNullValue()));
-```
-
-* `hasItem` - check array has given item, it can take a matcher argument
-```php
-assertThat([2, 4, 6], hasItem(equalTo(2)));
-```
-
-* `hasItems` - check array has given items, it can take multiple matcher as arguments
-```php
-assertThat([1, 3, 5], hasItems(equalTo(1), equalTo(3)));
-```
-
-### Object
-
-* `hasToString` - check `__toString` or `toString` method
-```php
-class Foo {
-    public $name = null;
-
-    public function __toString() {
-        return "[Foo]Instance";
-    }
-}
-$foo = new Foo;
-assertThat($foo, hasToString(equalTo("[Foo]Instance")));
-```
-
-* `equalTo` - compares two instances using comparison operator '=='
-```php
-$foo = new Foo;
-$foo2 = new Foo;
-assertThat($foo, equalTo($foo2));
-```
-
-* `identicalTo` - compares two instances using identity operator '==='
-```php
-assertThat($foo, is(not(identicalTo($foo2))));
-```
-
-* `anInstanceOf` - check instance is an instance|sub-class of given class
-```php
-assertThat($foo, anInstanceOf(Foo::class));
-```
-
-* `any` - alias of `anInstanceOf`
-
-* `nullValue` check null
-```php
-assertThat(null, is(nullValue()));
-```
-
-* `notNullValue` check not null
-```php
-assertThat("", notNullValue());
-```
-
-* `sameInstance` - check for same instance
-```php
-assertThat($foo, is(not(sameInstance($foo2))));
-assertThat($foo, is(sameInstance($foo)));
-```
-
-* `typeOf`- check type
-```php 
-assertThat(1, typeOf("integer"));
+```bash
+composer require league/config
 ```
 
-* `notSet` - check if instance property is not set
-```php
-assertThat($foo, notSet("name"));
-```
-
-* `set` - check if instance property is set
-```php
-$foo->name = "bar";
-assertThat($foo, set("name"));
-```
-
-### Numbers
+## 🧰️ Basic Usage
 
-* `closeTo` - check value close to a range
-```php
-assertThat(3, closeTo(3, 0.5));
-```
+The `Configuration` class provides everything you need to define the configuration structure and fetch values:
 
-* `comparesEqualTo` - check with '=='
 ```php
-assertThat(2, comparesEqualTo(2));
-```
-
-* `greaterThan` - check '>'
-```
-assertThat(2, greaterThan(1));
-```
+use League\Config\Configuration;
+use Nette\Schema\Expect;
 
-* `greaterThanOrEqualTo`
-```php
-assertThat(2, greaterThanOrEqualTo(2));
-```
+// Define your configuration schema
+$config = new Configuration([
+    'database' => Expect::structure([
+        'driver' => Expect::anyOf('mysql', 'postgresql', 'sqlite')->required(),
+        'host' => Expect::string()->default('localhost'),
+        'port' => Expect::int()->min(1)->max(65535),
+        'ssl' => Expect::bool(),
+        'database' => Expect::string()->required(),
+        'username' => Expect::string()->required(),
+        'password' => Expect::string()->nullable(),
+    ]),
+    'logging' => Expect::structure([
+        'enabled' => Expect::bool()->default($_ENV['DEBUG'] == true),
+        'file' => Expect::string()->deprecated("use logging.path instead"),
+        'path' => Expect::string()->assert(function ($path) { return \is_writeable($path); })->required(),
+    ]),
+]);
 
-* `atLeast` - The value is >= given value
-```php
-assertThat(3, atLeast(2));
-```
-* `lessThan`
-```php
-assertThat(2, lessThan(3));
-```
+// Set the values, either all at once with `merge()`:
+$config->merge([
+    'database' => [
+        'driver' => 'mysql',
+        'port' => 3306,
+        'database' => 'mydb',
+        'username' => 'user',
+        'password' => 'secret',
+    ],
+]);
 
-* `lessThanOrEqualTo`
-```php
-assertThat(2, lessThanOrEqualTo(3));
-```
+// Or one-at-a-time with `set()`:
+$config->set('logging.path', '/var/log/myapp.log');
 
-* `atMost` - The value is <= given value
-```php
-assertThat(2, atMost(3));
-```
+// You can now retrieve those values with `get()`.
+// Validation and defaults will be applied for you automatically
+$config->get('database');        // Fetches the entire "database" section as an array
+$config->get('database.driver'); // Fetch a specific nested value with dot notation
+$config->get('database/driver'); // Fetch a specific nested value with slash notation
+$config->get('database.host');   // Returns the default value "localhost"
+$config->get('logging.path');    // Guaranteed to be writeable thanks to the assertion in the schema
 
-### String
+// If validation fails an `InvalidConfigurationException` will be thrown:
+$config->set('database.driver', 'mongodb');
+$config->get('database.driver'); // InvalidConfigurationException
 
-* `emptyString` - check for empty string
-```php
-assertThat("", emptyString());
-```
+// Attempting to fetch a non-existent key will result in an `InvalidConfigurationException`
+$config->get('foo.bar');
 
-* `isEmptyOrNullString`
-```php
-assertThat(null, isEmptyOrNullString());
+// You could avoid this by checking whether that item exists:
+$config->exists('foo.bar'); // Returns `false`
 ```
 
-* `nullOrEmptyString`
-```php
-assertThat("", nullOrEmptyString());
-```
+## 📓 Documentation
 
-* `isNonEmptyString`
-```php
-assertThat("foo", isNonEmptyString());
-```
+Full documentation can be found at [config.thephpleague.com][docs].
 
-* `nonEmptyString`
-```php
-assertThat("foo", nonEmptyString());
-```
+## 💭 Philosophy
 
-* `equalToIgnoringCase`
-```php
-assertThat("Foo", equalToIgnoringCase("foo"));
-```
-* `equalToIgnoringWhiteSpace`
-```php
-assertThat(" Foo ", equalToIgnoringWhiteSpace("Foo"));
-```
+This library aims to provide a **simple yet opinionated** approach to configuration with the following goals:
 
-* `matchesPattern` - matches with regex pattern
-```php
-assertThat("foobarbaz", matchesPattern('/(foo)(bar)(baz)/'));
-```
+- The configuration should operate on **arrays with nested values** which are easily accessible
+- The configuration structure should be **defined with strict schemas** defining the overall structure, allowed types, and allowed values
+- Schemas should be defined using a **simple, fluent interface**
+- You should be able to **add and combine schemas but never modify existing ones**
+- Both the configuration values and the schema should be **defined and managed with PHP code**
+- Schemas should be **immutable**; they should never change once they are set
+- Configuration values should never define or influence the schemas
 
-* `containsString` - check for substring
-```php
-assertThat("foobar", containsString("foo"));
-```
+As a result, this library will likely **never** support features like:
 
-* `containsStringIgnoringCase`
-```php
-assertThat("fooBar", containsStringIgnoringCase("bar"));
-```
+- Loading and/or exporting configuration values or schemas using YAML, XML, or other files
+- Parsing configuration values from a command line or other user interface
+- Dynamically changing the schema, allowed values, or default values based on other configuration values
 
-* `stringContainsInOrder`
-```php
-assertThat("foo", stringContainsInOrder("foo"));
-```
+If you need that functionality you should check out other libraries like:
 
-* `endsWith` - check string that ends with given value
-```php
-assertThat("foo", endsWith("oo"));
-```
+- [symfony/config]
+- [symfony/options-resolver]
+- [hassankhan/config]
+- [consolidation/config]
+- [laminas/laminas-config]
 
-* `startsWith` - check string that starts with given value
-```php
-assertThat("bar", startsWith("ba"));
-```
+## 🏷️ Versioning
 
-### Type-checking
+[SemVer](http://semver.org/) is followed closely. Minor and patch releases should not introduce breaking changes to the codebase.
 
-* `arrayValue` - check array type
-```php
-assertThat([], arrayValue());
-```
+Any classes or methods marked `@internal` are not intended for use outside this library and are subject to breaking changes at any time, so please avoid using them.
 
-* `booleanValue`
-```php
-assertThat(true, booleanValue());
-```
-* `boolValue` - alias of booleanValue
+## 🛠️ Maintenance & Support
 
-* `callableValue` - check if value is callable
-```php
-$func = function () {};
-assertThat($func, callableValue());
-```
-* `doubleValue`
-```php
-assertThat(3.14, doubleValue());
-```
+When a new **minor** version (e.g. `1.0` -> `1.1`) is released, the previous one (`1.0`) will continue to receive security and critical bug fixes for *at least* 3 months.
 
-* `floatValue`
-```php
-assertThat(3.14, floatValue());
-```
+When a new **major** version is released (e.g. `1.1` -> `2.0`), the previous one (`1.1`) will receive critical bug fixes for *at least* 3 months and security updates for 6 months after that new release comes out.
 
-* `integerValue`
-```php
-assertThat(1, integerValue());
-```
+(This policy may change in the future and exceptions may be made on a case-by-case basis.)
 
-* `intValue` - alias of `integerValue`
+## 👷‍️ Contributing
 
-* `numericValue` - check if value is numeric
-```php
-assertThat("123", numericValue());
-```
+Contributions to this library are **welcome**! We only ask that you adhere to our [contributor guidelines] and avoid making changes that conflict with our Philosophy above.
 
-* `objectValue` - check for object
-```php
-$obj = new stdClass;
-assertThat($obj, objectValue());
-```
-* `anObject`
-```php
-assertThat($obj, anObject());
-```
+## 🧪 Testing
 
-* `resourceValue` - check resource type
-```php
-$fp = fopen("/tmp/foo", "w+");
-assertThat($fp, resourceValue());
+```bash
+composer test
 ```
 
-* `scalarValue` - check for scalar value
-```php
-assertThat(1, scalarValue());
-```
+## 📄 License
 
-* `stringValue`
-```php
-assertThat("", stringValue());
-```
+**league/config** is licensed under the BSD-3 license.  See the [`LICENSE.md`][license] file for more details.
 
-### XML
+## 🗺️  Who Uses It?
 
-* `hasXPath` - check xml with a xpath
-```php
-$xml = <<<XML
-<books>
-  <book>
-    <isbn>1</isbn>   
-  </book>
-  <book>
-    <isbn>2</isbn>   
-  </book>
-</books>
-XML;
-
-$doc = new DOMDocument;
-$doc->loadXML($xml);
-assertThat($doc, hasXPath("book", 2));
-```
+This project is used by [league/commonmark][league-commonmark].
 
+[docs]: https://config.thephpleague.com/
+[@colinodell]: https://www.twitter.com/colinodell
+[Composer]: https://getcomposer.org/
+[PHP League]: https://thephpleague.com
+[symfony/config]: https://symfony.com/doc/current/components/config.html
+[symfony/options-resolver]: https://symfony.com/doc/current/components/options_resolver.html
+[hassankhan/config]: https://github.com/hassankhan/config
+[consolidation/config]: https://github.com/consolidation/config
+[laminas/laminas-config]: https://docs.laminas.dev/laminas-config/
+[contributor guidelines]: https://github.com/thephpleague/config/blob/main/.github/CONTRIBUTING.md
+[license]: https://github.com/thephpleague/config/blob/main/LICENSE.md
+[league-commonmark]: https://commonmark.thephpleague.com
