@@ -1,0 +1,44 @@
+{
+  "name": "Parnera Champions Trophy",
+  "short_name": "PCT",
+  "description": "Registration, auction and live score",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0b1f3a",
+  "theme_color": "#0b1f3a",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Live Score",
+      "url": "live"
+    },
+    {
+      "name": "Auction",
+      "url": "auction"
+    },
+    {
+      "name": "Player Registration",
+      "url": "register"
+    }
+  ]
+}
