@@ -1,42 +1,68 @@
-# Change Log
-All notable changes to this project will be documented in this file.
-Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
+# Changelog
 
-## [Unreleased][unreleased]
+## 1.17.0 - 2026-07-09
 
-## [1.2.0] - 2022-12-11
+- Updated lookup
 
-### Changed
+## 1.16.0 - 2025-09-21
 
-- Values can now be set prior to the corresponding schema being registered.
-- `exists()` and `get()` now only trigger validation for the relevant schema, not the entire config at once.
+- Updated lookup
+- Prepped for 8.4 implicit nullable deprecation
 
-## [1.1.1] - 2021-08-14
+## 1.15.0 - 2024-01-28
 
-### Changed
+- Updated lookup
 
- - Bumped the minimum version of dflydev/dot-access-data for PHP 8.1 support
+## 1.14.0 - 2022-10-17
 
-## [1.1.0] - 2021-06-19
+### Updated
 
-### Changed
+- Updated lookup
 
-- Bumped the minimum PHP version to 7.4+
-- Bumped the minimum version of nette/schema to 1.2.0
+## 1.13.0 - 2023-08-05
 
-## [1.0.1] - 2021-05-31
+### Added
+
+- A reverse lookup mechanism to fetch one or all extensions for a given mimetype
+
+## 1.12.0 - 2023-08-03
+
+### Updated
+
+- Updated lookup
+
+## 1.11.0 - 2023-04-17
+
+### Updated
+
+- Updated lookup
+
+## 1.10.0 - 2022-04-11
 
 ### Fixed
 
-- Fixed the `ConfigurationExceptionInterface` marker interface not extending `Throwable` (#2)
+- Added Flysystem v1 inconclusive mime-types and made it configurable as a constructor parameter.
 
-## [1.0.0] - 2021-05-31
+## 1.9.0 - 2021-11-21
 
-Initial release! 🎉
+### Updated
 
-[unreleased]: https://github.com/thephpleague/config/compare/v1.2.0...main
-[1.2.0]: https://github.com/thephpleague/config/compare/v1.1.1...v.1.2.0
-[1.1.1]: https://github.com/thephpleague/config/compare/v1.1.0...v1.1.1
-[1.1.0]: https://github.com/thephpleague/config/compare/v1.0.1...v1.1.0
-[1.0.1]: https://github.com/thephpleague/config/compare/v1.0.0...v1.0.1
-[1.0.0]: https://github.com/thephpleague/config/releases/tag/v1.0.0
+- Updated lookup
+
+## 1.8.0 - 2021-09-25
+
+### Added
+
+- Added the decorator `OverridingExtensionToMimeTypeMap` which allows you to override values.
+
+## 1.7.0 - 2021-01-18
+
+### Added
+
+- Added a `bufferSampleSize` parameter to the `FinfoMimeTypeDetector` class that allows you to send a reduced content sample which costs less memory.
+
+## 1.6.0 - 2021-01-18
+
+### Changes
+
+- Updated generated mime-type map

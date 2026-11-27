@@ -1,72 +1,85 @@
 {
-    "name": "league/flysystem",
-    "description": "File storage abstraction for PHP",
-    "keywords": [
-        "filesystem", "filesystems", "files", "storage", "aws",
-        "s3", "ftp", "sftp", "webdav", "file", "cloud"
-    ],
-    "scripts": {
-        "phpstan": "vendor/bin/phpstan analyse -l 6 src"
-    },
+    "name": "league/uri",
     "type": "library",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "League\\Flysystem\\": "src"
-        }
-    },
-    "require": {
-        "php": "^8.0.2",
-        "league/flysystem-local":  "^3.0.0",
-        "league/mime-type-detection": "^1.0.0"
-    },
-    "require-dev": {
-        "ext-zip": "*",
-        "ext-fileinfo": "*",
-        "ext-ftp": "*",
-        "ext-mongodb": "^1.3|^2",
-        "microsoft/azure-storage-blob": "^1.1",
-        "phpunit/phpunit": "^9.5.11|^10.0",
-        "phpstan/phpstan": "^1.10",
-        "phpseclib/phpseclib": "^3.0.36",
-        "aws/aws-sdk-php": "^3.295.10",
-        "composer/semver": "^3.0",
-        "friendsofphp/php-cs-fixer": "^3.5",
-        "google/cloud-storage": "^1.23",
-        "async-aws/s3": "^1.5 || ^2.0",
-        "async-aws/simple-s3": "^1.1 || ^2.0",
-        "mongodb/mongodb": "^1.2|^2",
-        "sabre/dav": "^4.6.0",
-        "guzzlehttp/psr7": "^2.6"
-    },
-    "conflict": {
-        "async-aws/core": "<1.19.0",
-        "async-aws/s3": "<1.14.0",
-        "symfony/http-client": "<5.2",
-        "guzzlehttp/ringphp": "<1.1.1",
-        "guzzlehttp/guzzle": "<7.0",
-        "aws/aws-sdk-php": "3.209.31 || 3.210.0",
-        "phpseclib/phpseclib": "3.0.15"
-    },
+    "description" : "URI manipulation library",
+    "keywords": [
+        "url",
+        "uri",
+        "urn",
+        "uri-template",
+        "rfc2141",
+        "rfc3986",
+        "rfc3987",
+        "rfc8141",
+        "rfc6570",
+        "psr-7",
+        "parse_url",
+        "http",
+        "https",
+        "ws",
+        "ftp",
+        "data-uri",
+        "file-uri",
+        "middleware",
+        "parse_str",
+        "query-string",
+        "querystring",
+        "hostname"
+    ],
     "license": "MIT",
+    "homepage": "https://uri.thephpleague.com",
     "authors": [
         {
-            "name": "Frank de Jonge",
-            "email": "info@frankdejonge.nl"
+            "name" : "Ignace Nyamagana Butera",
+            "email" : "nyamsprod@gmail.com",
+            "homepage" : "https://nyamsprod.com"
         }
     ],
-    "repositories": [
+    "support": {
+        "forum": "https://thephpleague.slack.com",
+        "docs": "https://uri.thephpleague.com",
+        "issues": "https://github.com/thephpleague/uri-src/issues"
+    },
+    "funding": [
         {
-            "type": "package",
-            "package": {
-                "name": "league/flysystem-local",
-                "version": "3.0.0",
-                "dist": {
-                    "type": "path",
-                    "url": "src/Local"
-                }
-            }
+            "type": "github",
+            "url": "https://github.com/sponsors/nyamsprod"
         }
-    ]
+    ],
+    "require": {
+        "php": "^8.1",
+        "league/uri-interfaces": "^7.10.0",
+        "psr/http-factory": "^1",
+        "ext-mbstring": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "League\\Uri\\": ""
+        }
+    },
+    "conflict": {
+        "league/uri-schemes": "^1.0"
+    },
+    "suggest": {
+        "ext-bcmath": "to improve IPV4 host parsing",
+        "ext-dom": "to convert the URI into an HTML anchor tag",
+        "ext-fileinfo": "to create Data URI from file contennts",
+        "ext-gmp": "to improve IPV4 host parsing",
+        "ext-intl": "to handle IDN host with the best performance",
+        "ext-uri": "to use the PHP native URI class",
+        "jeremykendall/php-domain-parser": "to further parse the URI host and resolve its Public Suffix and Top Level Domain",
+        "league/uri-components" : "to provide additional tools to manipulate URI objects components",
+        "league/uri-polyfill" : "to backport the PHP URI extension for older versions of PHP",
+        "php-64bit": "to improve IPV4 host parsing",
+        "symfony/polyfill-intl-idn": "to handle IDN host via the Symfony polyfill if ext-intl is not present",
+        "rowbot/url": "to handle URLs using the WHATWG URL Living Standard specification"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "7.x-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
 }
